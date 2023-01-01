@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { Calendar } from './Calendar'
 import { Ihours } from './interfaces/Ihours';
 import { Ireservation } from './interfaces/Ireservation';
-import './styles/index.css';
+
 
 const hrs: Array<Ihours> = [{ hour: '9-10', isReserved: false, val: 9 }, { hour: '10-11', isReserved: false, val: 10 }, { hour: '11-12', isReserved: false, val: 11 }, { hour: '13-14', isReserved: false, val: 13 }, { hour: '14-15', isReserved: false, val: 14 }, { hour: '15-16', isReserved: false, val: 15 }, { hour: '16-17', isReserved: false, val: 16 }]
 const dOff = ['Sun', 'Sat']
