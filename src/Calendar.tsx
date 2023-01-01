@@ -5,9 +5,8 @@ import { Ihours } from './interfaces/Ihours';
 import { Ireservation } from './interfaces/Ireservation';
 
 export interface calendarProps {
+    workingHours?: Array<Ihours>
     daysOff: string[];
-    hours: Array<Ihours>
-    setHours: React.Dispatch<React.SetStateAction<Ihours[]>>
     OnAdd: () => void;
     reservations: Array<Ireservation>;
     calendarClass?: string;
@@ -21,7 +20,7 @@ export interface calendarProps {
     cancelDialogClass?: string;
 }
 
-export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, daysOff, hours, OnAdd, reservations, setHours, calendarClass, dayClass, hourClass, dialogClass, dialogTitle }: calendarProps) => {
+export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, daysOff, OnAdd, reservations, calendarClass, dayClass, hourClass, dialogClass, dialogTitle,workingHours }: calendarProps) => {
     const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
@@ -32,6 +31,7 @@ export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, d
     const [numberDays, setNumberDays] = useState(getDaysInMonth(year, month))
     const [calendar, setCalendar] = useState<any>([])
     const [anim, setAnim] = useState(0)
+    const [hours, setHours] = useState(workingHours||[])
 
     function getDaysInMonth(year: number, month: number) {
         return new Date(year, month + 1, 0).getDate();
