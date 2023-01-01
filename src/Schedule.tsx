@@ -42,7 +42,7 @@ export interface scheduleProps {
     cancelDialogClass?: string;
 }
 
-export const Schedule = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, dialogTitle, hourClass, OnAdd, workingHours = hrs, daysOff = dOff, reservations = [], calendarClass, dayClass, dialogClass }: scheduleProps) => {
+export const Schedule = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, dialogTitle, hourClass, OnAdd, daysOff = dOff, reservations = [], calendarClass, dayClass, dialogClass }: scheduleProps) => {
     const [hours, setHours] = useState(hrs)
     return (
         <div>
