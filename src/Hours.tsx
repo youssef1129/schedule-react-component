@@ -3,7 +3,7 @@ import { Dialog } from './Dialog';
 import { CancelDialog } from './CancelDialog';
 import { ReactNode, useState } from 'react';
 import React from 'react';
-
+import styles from './style.module.css';
 
 export interface hoursProps {
   hours: Array<Ihours>
@@ -25,7 +25,7 @@ export const Hours = ({ hours, day, hourClass, onAdd, anim, dialogClass, dialogT
 
   return (
     <>
-      <div className={`hours`} style={{ opacity: anim }}>
+      <div className={`${styles.hours}`} style={{ opacity: anim }}>
         {
           hours.map((h) => {
             return <>
@@ -33,7 +33,7 @@ export const Hours = ({ hours, day, hourClass, onAdd, anim, dialogClass, dialogT
                 (h.isReserved) || (h.val <= new Date().getHours() && new Date().getDate() === day)
                   ?
                   <button
-                    className={`${hourClass && hourClass} hour disabled`}
+                    className={`${hourClass && hourClass} ${styles.hour} ${styles.disabled}`}
                     key={h.val}
                     onClick={() => display2 === 'none' ? setDisplay2('flex') : setDisplay2('none')}
                   >
@@ -41,7 +41,7 @@ export const Hours = ({ hours, day, hourClass, onAdd, anim, dialogClass, dialogT
                   </button>
                   :
                   <button
-                    className={`${hourClass && hourClass} hour`}
+                    className={`${hourClass && hourClass} ${styles.hour}`}
                     key={h.val}
                     onClick={() => display === 'none' ? setDisplay('flex') : setDisplay('none')}
                   >

@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import styles from './style.module.css';
 
 export interface dialogProps {
     dialogTitle?: string;
@@ -14,7 +15,7 @@ export const Dialog = ({ children, dialogTitle = 'title', onAdd, dialogClass, di
         await onAdd()
     }
     return (
-        <div style={{ display: `${display}` }} className={`${dialogClass && dialogClass} dialog`}>
+        <div style={{ display: `${display}` }} className={`${dialogClass && dialogClass} ${styles.dialog}`}>
             <div>
                 <label>{dialogTitle}</label>
                 <div>

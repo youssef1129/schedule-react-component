@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './style.module.css';
 
 export interface cancelDialogProps {
     cancelDialogTitle?: string;
@@ -12,7 +13,7 @@ export const CancelDialog = ({cancelDialogTitle = 'Cancel reservation', onCancel
         await onCancel()
     }
     return (
-        <div style={{ display: `${display2}` }} className={`${cancelDialogClass && cancelDialogClass} dialog`}>
+        <div style={{ display: `${display2}` }} className={`${cancelDialogClass && cancelDialogClass} ${styles.dialog}`}>
             <div>
                 <label>{cancelDialogTitle}</label>
                 <div>

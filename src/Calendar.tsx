@@ -4,6 +4,8 @@ import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai';
 import { Hours } from './Hours';
 import { Ihours } from './interfaces/Ihours';
 import { Ireservation } from './interfaces/Ireservation';
+import styles from './style.module.css';
+
 
 export interface calendarProps {
     workingHours?: Array<Ihours>
@@ -97,22 +99,22 @@ export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, d
 
     return (
         <>
-            <div className={`calendar ${calendarClass && calendarClass}`}>
-                <div className='header'>
+            <div className={`${styles.calendar} ${calendarClass && calendarClass}`}>
+                <div className={`${styles.header}`}>
                     <div onClick={prevMonth}>{<AiOutlineCaretLeft />}</div>
                     <label>{monthNames[month]} {year}</label>
                     <div onClick={nextMonth}>{<AiOutlineCaretRight />}</div>
                 </div>
-                <div className='days'>
+                <div className={`${styles.days}`}>
                     {
                         calendar.map((d: any) => {
                             return (
                                 <button key={d.day} disabled={(new Date(year, month + 1, day).getTime() < new Date().getTime()) || (d.day < new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) || (daysOff.includes(d.name))}
                                     onClick={() => onDayClick(d.day)}
-                                    className={`day ${dayClass && dayClass}`}
+                                    className={`${styles.day} ${dayClass && dayClass}`}
                                 >
                                     <label>{d.name}</label>
-                                    <label className='dayLab'>{d.day}</label>
+                                    <label className={`${styles.dayLab}`}>{d.day}</label>
                                 </button>
                             )
                         })
