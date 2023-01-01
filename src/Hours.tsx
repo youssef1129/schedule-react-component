@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode } from 'react'
 import { Ihours } from '../src/interfaces/Ihours'
 import { Dialog } from './Dialog';
 import { CancelDialog } from './CancelDialog';
@@ -19,8 +19,8 @@ export interface hoursProps {
 }
 
 export const Hours = ({ hours, day, hourClass, onAdd, anim, dialogClass, dialogTitle, input,onCancel,cancelDialogClass,cancelDialogTitle }: hoursProps) => {
-  const [display, setDisplay] = useState('none')
-  const [display2, setDisplay2] = useState('none')
+  const [display, setDisplay] = React.useState('none')
+  const [display2, setDisplay2] = React.useState('none')
 
   return (
     <>
