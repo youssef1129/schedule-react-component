@@ -43,7 +43,7 @@ export interface scheduleProps {
 }
 
 export const Schedule = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, dialogTitle, hourClass, OnAdd, workingHours = hrs, daysOff = dOff, reservations = [], calendarClass, dayClass, dialogClass }: scheduleProps) => {
-    const [hours, setHours] = useState(workingHours||[])
+    const [hours, setHours] = useState(hrs)
     return (
         <div>
             <Calendar onCancel={onCancel} cancelDialogClass={cancelDialogClass} cancelDialogTitle={cancelDialogTitle} input={input} dialogTitle={dialogTitle} dialogClass={dialogClass} hourClass={hourClass} dayClass={dayClass} calendarClass={calendarClass} daysOff={daysOff} OnAdd={OnAdd} hours={hours} setHours={setHours} reservations={reservations} />
