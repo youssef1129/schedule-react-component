@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import * as React from "react";
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai';
 import { Hours } from './Hours';
 import { Ihours } from './interfaces/Ihours';
@@ -14,7 +14,7 @@ export interface calendarProps {
     hourClass?: string;
     dialogClass?: string;
     dialogTitle?: string;
-    input?: ReactNode;
+    input?: React.ReactNode;
     cancelDialogTitle?: string;
     onCancel: () => void;
     cancelDialogClass?: string;

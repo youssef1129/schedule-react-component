@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import * as React from "react";
 import { Ihours } from '../src/interfaces/Ihours'
 import { Dialog } from './Dialog';
 import { CancelDialog } from './CancelDialog';
@@ -12,7 +12,7 @@ export interface hoursProps {
   anim: number;
   dialogClass?: string;
   dialogTitle?: string;
-  input?: ReactNode;
+  input?: React.ReactNode;
   cancelDialogTitle?: string;
   onCancel: () => void;
   cancelDialogClass?: string;
