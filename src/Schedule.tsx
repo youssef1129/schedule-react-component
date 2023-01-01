@@ -15,9 +15,9 @@ const dOff = ['Sun', 'Sat']
 
 export interface scheduleProps {
     /** the working hours example : [{ hour: '9-10', isReserved: false, val: 9 }, { hour: '10-11', isReserved: false, val: 10 }, { hour: '11-12', isReserved: false, val: 11 }, { hour: '13-14', isReserved: false, val: 13 }, { hour: '14-15', isReserved: false, val: 14 }, { hour: '15-16', isReserved: false, val: 15 }, { hour: '16-17', isReserved: false, val: 16 }] */
-    workingHours: Array<Ihours>
+    workingHours?: Array<Ihours>
     /** the days you don't want to reserve example : ['Sun','Sat'] */
-    daysOff: string[];
+    daysOff?: string[];
     /** reservations data */
     reservations: Array<Ireservation>
     /** on add reservation */
