@@ -1,4 +1,5 @@
-import * as React from "react";
+
+import React, { ReactNode, useState, useEffect } from 'react';
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai';
 import { Hours } from './Hours';
 import { Ihours } from './interfaces/Ihours';
@@ -14,7 +15,7 @@ export interface calendarProps {
     hourClass?: string;
     dialogClass?: string;
     dialogTitle?: string;
-    input?: React.ReactNode;
+    input?: ReactNode;
     cancelDialogTitle?: string;
     onCancel: () => void;
     cancelDialogClass?: string;
@@ -25,13 +26,13 @@ export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, d
         "July", "August", "September", "October", "November", "December"
     ];
 
-    const [month, setMonth] = React.useState(new Date().getMonth());
-    const [year, setYear] = React.useState(new Date().getFullYear());
-    const [day, setDay] = React.useState(0)
-    const [numberDays, setNumberDays] = React.useState(getDaysInMonth(year, month))
-    const [calendar, setCalendar] = React.useState<any>([])
-    const [anim, setAnim] = React.useState(0)
-    const [hours, setHours] = React.useState(workingHours||[])
+    const [month, setMonth] = useState(new Date().getMonth());
+    const [year, setYear] = useState(new Date().getFullYear());
+    const [day, setDay] = useState(0)
+    const [numberDays, setNumberDays] = useState(getDaysInMonth(year, month))
+    const [calendar, setCalendar] = useState<any>([])
+    const [anim, setAnim] = useState(0)
+    const [hours, setHours] = useState(workingHours||[])
 
     function getDaysInMonth(year: number, month: number) {
         return new Date(year, month + 1, 0).getDate();
@@ -46,7 +47,7 @@ export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, d
     }
 
 
-    React.useEffect(() => {
+    useEffect(() => {
         const arr = Array(numberDays).fill(0).map((_i, d) => {
             return { day: d + 1, name: new Date(year, month, d + 1).toString().split(' ')[0], isCurrentDay: isCurrentDay(d) }
         });
