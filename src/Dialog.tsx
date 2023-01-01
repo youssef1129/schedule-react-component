@@ -9,7 +9,7 @@ export interface dialogProps {
     setDisplay: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const Dialog = ({ children, dialogTitle = 'title', onAdd, dialogClass, display = 'none', setDisplay, ...dialogProps }: dialogProps) => {
+export const Dialog = ({ children, dialogTitle = 'title', onAdd, dialogClass, display = 'none', setDisplay }: dialogProps) => {
     const add = async () => {
         await onAdd()
     }
