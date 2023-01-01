@@ -1,4 +1,3 @@
-import './styles/index.css';
 import React, { ReactNode, useState } from 'react'
 import { Ihours } from '../src/interfaces/Ihours'
 import { Dialog } from './Dialog';
