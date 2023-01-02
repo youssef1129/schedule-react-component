@@ -123,7 +123,7 @@ export const Calendar = ({ onCancel, cancelDialogClass, cancelDialogTitle, input
                                             :
                                             <button key={d.day}
                                                 onClick={() => onDayClick(d.day)}
-                                                className={`${dayClass && dayClass}${styles.day} `}
+                                                className={`${dayClass && dayClass} ${styles.day} `}
                                             >
                                                 <label>{d.name}</label>
                                                 <label className={`${styles.dayLab}`}>{d.day}</label>
