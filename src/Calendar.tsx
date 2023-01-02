@@ -48,7 +48,9 @@ export const Calendar = ({ onCancel, cancelDialogClass, cancelDialogTitle, input
         }
     }
 
-
+    useEffect(() => {
+        onDayClick(day)
+    }, [reservations])
     useEffect(() => {
         const arr = Array(numberDays).fill(0).map((_i, d) => {
             return { day: d + 1, name: new Date(year, month, d + 1).toString().split(' ')[0], isCurrentDay: isCurrentDay(d) }
