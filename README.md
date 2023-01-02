@@ -65,10 +65,10 @@ const reservs: Array<Ireservation> = [
 
 const Component = () => {
   const onAdd = (hour: number, day: number, month: number, year: number) => {
-    console.log(hour, day, month, year);
+    Post('api/addReservation',{hour,day,month,year})
   }
   const onCancel = (hour: number, day: number, month: number, year: number) => {
-    console.log(hour, day, month, year);
+    Delete('api/deleteReservation',{hour,day,month,year})
   }
   return (
     <div>

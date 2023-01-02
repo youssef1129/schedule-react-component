@@ -104,7 +104,7 @@ export const Calendar = ({ onCancel, cancelDialogClass, cancelDialogTitle, input
             <div className={`${styles.calendar} ${calendarClass && calendarClass}`}>
                 <div className={`${styles.header}`}>
                     <div onClick={prevMonth}>{<AiOutlineCaretLeft />}</div>
-                    <label>{monthNames[month]} {year}</label>
+                    <label><span>{monthNames[month]}</span><span>{year}</span></label>
                     <div onClick={nextMonth}>{<AiOutlineCaretRight />}</div>
                 </div>
                 <div className={`${styles.days}`}>
