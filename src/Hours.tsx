@@ -36,7 +36,7 @@ export const Hours = ({ hours, day,year,month, hourClass, onAdd, anim, dialogCla
                 (h.isReserved) || (h.val <= new Date().getHours() && new Date().getDate() === day)
                   ?
                   <button
-                    className={`${hourClass && hourClass} ${styles.hour} ${styles.disabled}`}
+                    className={`${styles.hour} ${styles.disabled}`}
                     key={h.val}
                     onClick={() => display2 === 'none' ? (setDisplay2('flex'),setCurrentHour(h.val)) : setDisplay2('none')}
                   >
