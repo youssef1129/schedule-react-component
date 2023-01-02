@@ -111,7 +111,7 @@ export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, d
                             return (
                                 <button key={d.day} disabled={(new Date(year, month + 1, day).getTime() < new Date().getTime()) || (d.day < new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) || (daysOff.includes(d.name))}
                                     onClick={() => onDayClick(d.day)}
-                                    className={`${styles.day} ${dayClass && dayClass}`}
+                                    className={`${(!(new Date(year, month + 1, day).getTime() < new Date().getTime()) || (d.day < new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) || (daysOff.includes(d.name)) &&dayClass) && dayClass} ${styles.day}`}
                                 >
                                     <label>{d.name}</label>
                                     <label className={`${styles.dayLab}`}>{d.day}</label>
