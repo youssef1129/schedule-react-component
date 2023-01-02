@@ -55,8 +55,8 @@ export const Hours = ({ hours, day,year,month, hourClass, onAdd, anim, dialogCla
           })
         }
       </div>
-      <CancelDialog day={day} month={month} year={year} display2={display2} setDisplay2={setDisplay2} onCancel={onCancel} cancelDialogClass={cancelDialogClass} cancelDialogTitle={cancelDialogTitle} />
-      <Dialog day={day} month={month} year={year} children={input || <input />} display={display} setDisplay={setDisplay} onAdd={onAdd} dialogClass={dialogClass} dialogTitle={dialogTitle} />
+      <CancelDialog hour={currentHour} day={day} month={month} year={year} display2={display2} setDisplay2={setDisplay2} onCancel={onCancel} cancelDialogClass={cancelDialogClass} cancelDialogTitle={cancelDialogTitle} />
+      <Dialog hour={currentHour} day={day} month={month} year={year} children={input || <input />} display={display} setDisplay={setDisplay} onAdd={onAdd} dialogClass={dialogClass} dialogTitle={dialogTitle} />
     </>
   )
 }
