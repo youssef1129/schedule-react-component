@@ -10,7 +10,7 @@ import styles from './style.module.css';
 export interface calendarProps {
     workingHours?: Array<Ihours>
     daysOff: string[];
-    OnAdd: (hour:number,day:number,month:number,year:number) => void;
+    OnAdd: (hour: number, day: number, month: number, year: number) => void;
     reservations: Array<Ireservation>;
     calendarClass?: string;
     dayClass?: string;
@@ -19,11 +19,11 @@ export interface calendarProps {
     dialogTitle?: string;
     input?: ReactNode;
     cancelDialogTitle?: string;
-    onCancel: (hour:number,day:number,month:number,year:number) => void;
+    onCancel: (hour: number, day: number, month: number, year: number) => void;
     cancelDialogClass?: string;
 }
 
-export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, daysOff, OnAdd, reservations, calendarClass, dayClass, hourClass, dialogClass, dialogTitle,workingHours }: calendarProps) => {
+export const Calendar = ({ onCancel, cancelDialogClass, cancelDialogTitle, input, daysOff, OnAdd, reservations, calendarClass, dayClass, hourClass, dialogClass, dialogTitle, workingHours }: calendarProps) => {
     const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
@@ -34,7 +34,7 @@ export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, d
     const [numberDays, setNumberDays] = useState(getDaysInMonth(year, month))
     const [calendar, setCalendar] = useState<any>([])
     const [anim, setAnim] = useState(0)
-    const [hours, setHours] = useState(workingHours||[])
+    const [hours, setHours] = useState(workingHours || [])
 
     function getDaysInMonth(year: number, month: number) {
         return new Date(year, month + 1, 0).getDate();
@@ -109,13 +109,28 @@ export const Calendar = ({ onCancel,cancelDialogClass,cancelDialogTitle,input, d
                     {
                         calendar.map((d: any) => {
                             return (
-                                <button key={d.day} disabled={(new Date(year, month + 1, day).getTime() < new Date().getTime()) || (d.day < new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) || (daysOff.includes(d.name))}
-                                    onClick={() => onDayClick(d.day)}
-                                    className={`${(!(new Date(year, month + 1, day).getTime() < new Date().getTime()) || (d.day < new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) || (daysOff.includes(d.name)) &&dayClass) && dayClass} ${styles.day}`}
-                                >
-                                    <label>{d.name}</label>
-                                    <label className={`${styles.dayLab}`}>{d.day}</label>
-                                </button>
+                                <>
+                                    {
+                                        (new Date(year, month + 1, day).getTime() < new Date().getTime()) || (d.day < new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) || (daysOff.includes(d.name))
+                                            ?
+                                            <button key={d.day} disabled
+                                                onClick={() => onDayClick(d.day)}
+                                                className={`${styles.day}`}
+                                            >
+                                                <label>{d.name}</label>
+                                                <label className={`${styles.dayLab}`}>{d.day}</label>
+                                            </button>
+                                            :
+                                            <button key={d.day}
+                                                onClick={() => onDayClick(d.day)}
+                                                className={`${dayClass && dayClass}${styles.day} `}
+                                            >
+                                                <label>{d.name}</label>
+                                                <label className={`${styles.dayLab}`}>{d.day}</label>
+                                            </button>
+                                    }
+                                </>
+
                             )
                         })
                     }
