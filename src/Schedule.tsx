@@ -7,12 +7,6 @@ import { Ireservation } from './interfaces/Ireservation';
 const hrs: Array<Ihours> = [{ hour: '9-10', isReserved: false, val: 9 }, { hour: '10-11', isReserved: false, val: 10 }, { hour: '11-12', isReserved: false, val: 11 }, { hour: '13-14', isReserved: false, val: 13 }, { hour: '14-15', isReserved: false, val: 14 }, { hour: '15-16', isReserved: false, val: 15 }, { hour: '16-17', isReserved: false, val: 16 }]
 const dOff = ['Sun', 'Sat']
 
-// const reservs: Array<Ireservation> = [
-//     { date: "2023-01-06T00:00:00.000Z", day: 6, hour: 14, id: 1, month: 1, year: 2023 },
-//     { date: "2023-01-06T00:00:00.000Z", day: 6, hour: 15, id: 1, month: 1, year: 2023 },
-//     { date: "2023-01-07T00:00:00.000Z", day: 7, hour: 16, id: 1, month: 1, year: 2023 }
-// ]
-
 export interface scheduleProps {
     /** the working hours example : [{ hour: '9-10', isReserved: false, val: 9 }, { hour: '10-11', isReserved: false, val: 10 }, { hour: '11-12', isReserved: false, val: 11 }, { hour: '13-14', isReserved: false, val: 13 }, { hour: '14-15', isReserved: false, val: 14 }, { hour: '15-16', isReserved: false, val: 15 }, { hour: '16-17', isReserved: false, val: 16 }] */
     workingHours?: Array<Ihours>
