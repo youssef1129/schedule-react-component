@@ -11,19 +11,20 @@ export interface hoursProps {
   month?:number;
   year?:number;
   hourClass?: string;
-  onAdd: (day:number,month:number,year:number) => void;
+  onAdd: (hour:number,day:number,month:number,year:number) => void;
   anim: number;
   dialogClass?: string;
   dialogTitle?: string;
   input?: ReactNode;
   cancelDialogTitle?: string;
-  onCancel: (day:number,month:number,year:number) => void;
+  onCancel: (hour:number,day:number,month:number,year:number) => void;
   cancelDialogClass?: string;
 }
 
 export const Hours = ({ hours, day,year,month, hourClass, onAdd, anim, dialogClass, dialogTitle, input,onCancel,cancelDialogClass,cancelDialogTitle }: hoursProps) => {
   const [display, setDisplay] = useState('none')
   const [display2, setDisplay2] = useState('none')
+  const [currentHour,setCurrentHour] = useState(0)
 
   return (
     <>
@@ -37,7 +38,7 @@ export const Hours = ({ hours, day,year,month, hourClass, onAdd, anim, dialogCla
                   <button
                     className={`${hourClass && hourClass} ${styles.hour} ${styles.disabled}`}
                     key={h.val}
-                    onClick={() => display2 === 'none' ? setDisplay2('flex') : setDisplay2('none')}
+                    onClick={() => display2 === 'none' ? (setDisplay2('flex'),setCurrentHour(h.val)) : setDisplay2('none')}
                   >
                     {h.hour}
                   </button>
@@ -45,7 +46,7 @@ export const Hours = ({ hours, day,year,month, hourClass, onAdd, anim, dialogCla
                   <button
                     className={`${hourClass && hourClass} ${styles.hour}`}
                     key={h.val}
-                    onClick={() => display === 'none' ? setDisplay('flex') : setDisplay('none')}
+                    onClick={() => display === 'none' ? (setDisplay('flex'),setCurrentHour(h.val)) : setDisplay('none')}
                   >
                     {h.hour}
                   </button>

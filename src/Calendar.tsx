@@ -10,7 +10,7 @@ import styles from './style.module.css';
 export interface calendarProps {
     workingHours?: Array<Ihours>
     daysOff: string[];
-    OnAdd: (day:number,month:number,year:number) => void;
+    OnAdd: (hour:number,day:number,month:number,year:number) => void;
     reservations: Array<Ireservation>;
     calendarClass?: string;
     dayClass?: string;
@@ -19,7 +19,7 @@ export interface calendarProps {
     dialogTitle?: string;
     input?: ReactNode;
     cancelDialogTitle?: string;
-    onCancel: (day:number,month:number,year:number) => void;
+    onCancel: (hour:number,day:number,month:number,year:number) => void;
     cancelDialogClass?: string;
 }
 
