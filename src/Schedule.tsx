@@ -21,7 +21,7 @@ export interface scheduleProps {
     /** reservations data */
     reservations: Array<Ireservation>
     /** on add reservation */
-    OnAdd: () => void;
+    OnAdd: (day:number,month:number,year:number) => void;
     /** calendar css class */
     calendarClass?: string;
     /** day css class */
@@ -37,7 +37,7 @@ export interface scheduleProps {
     /** cancel dialog title */
     cancelDialogTitle?: string;
     /** on cancecl reservation function */
-    onCancel: () => void;
+    onCancel: (day:number,month:number,year:number) => void;
     /** cancel dialog css class */
     cancelDialogClass?: string;
 }

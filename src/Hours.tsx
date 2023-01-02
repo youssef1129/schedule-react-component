@@ -7,19 +7,21 @@ import styles from './style.module.css';
 
 export interface hoursProps {
   hours: Array<Ihours>
-  day?: number
-  hourClass?: string
-  onAdd: () => void;
+  day?: number;
+  month?:number;
+  year?:number;
+  hourClass?: string;
+  onAdd: (day:number,month:number,year:number) => void;
   anim: number;
   dialogClass?: string;
   dialogTitle?: string;
   input?: ReactNode;
   cancelDialogTitle?: string;
-  onCancel: () => void;
+  onCancel: (day:number,month:number,year:number) => void;
   cancelDialogClass?: string;
 }
 
-export const Hours = ({ hours, day, hourClass, onAdd, anim, dialogClass, dialogTitle, input,onCancel,cancelDialogClass,cancelDialogTitle }: hoursProps) => {
+export const Hours = ({ hours, day,year,month, hourClass, onAdd, anim, dialogClass, dialogTitle, input,onCancel,cancelDialogClass,cancelDialogTitle }: hoursProps) => {
   const [display, setDisplay] = useState('none')
   const [display2, setDisplay2] = useState('none')
 
@@ -52,8 +54,8 @@ export const Hours = ({ hours, day, hourClass, onAdd, anim, dialogClass, dialogT
           })
         }
       </div>
-      <CancelDialog display2={display2} setDisplay2={setDisplay2} onCancel={onCancel} cancelDialogClass={cancelDialogClass} cancelDialogTitle={cancelDialogTitle} />
-      <Dialog children={input || <input />} display={display} setDisplay={setDisplay} onAdd={onAdd} dialogClass={dialogClass} dialogTitle={dialogTitle} />
+      <CancelDialog day={day} month={month} year={year} display2={display2} setDisplay2={setDisplay2} onCancel={onCancel} cancelDialogClass={cancelDialogClass} cancelDialogTitle={cancelDialogTitle} />
+      <Dialog day={day} month={month} year={year} children={input || <input />} display={display} setDisplay={setDisplay} onAdd={onAdd} dialogClass={dialogClass} dialogTitle={dialogTitle} />
     </>
   )
 }
