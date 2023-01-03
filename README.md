@@ -1,3 +1,6 @@
+[![Downloads](https://img.shields.io/badge/npm-downloads-brightgreen)](https://www.npmjs.com/package/typescript)
+
+
 # Schedule-react-compoent
 
 
