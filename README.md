@@ -1,4 +1,4 @@
-[![Downloads](https://img.shields.io/badge/npm-downloads-brightgreen)](https://www.npmjs.com/package/typescript)
+[![Downloads](https://img.shields.io/badge/npm-downloads-brightgreen)](https://www.npmjs.com/package/schedule-react-component)
 
 
 # Schedule-react-compoent
